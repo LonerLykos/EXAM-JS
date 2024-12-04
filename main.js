@@ -1,7 +1,17 @@
-let pairs = [];
+let pairs = JSON.parse(localStorage.getItem('pairs')) || [];
 let selectedItems = [];
 let addPair = document.getElementById('addPair');
 let pairsList = document.getElementById('pairs-list');
+
+if (pairs.length > 0) {
+    pairs.forEach((element) => {
+        const p = document.createElement('p');
+        p.classList.add('pair');
+        p.textContent = `${element[0]}=${element[1]}`;
+        pairsList.appendChild(p);
+    });
+}
+
 addPair.addEventListener('click', (e) => {
     e.preventDefault();
     const input = document.getElementById('nameValuePair');
@@ -14,6 +24,7 @@ addPair.addEventListener('click', (e) => {
         const match2 = value.match(/([a-zA-Z0-9а-яА-ЯїЇєЄіІґҐ]+)*\s?/g);
         if (match1 && match2) {
             pairs.push([name, value]);
+            localStorage.setItem('pairs', JSON.stringify(pairs));
             input.value = '';
             const p = document.createElement('p');
             p.classList.add('pair');
@@ -26,8 +37,6 @@ addPair.addEventListener('click', (e) => {
         alert(`Використовуйте '=' для визначення пари Ім'я=Значення`);
         input.value = '';
     }
-    console.log(pairs);
-
 });
 
 const sortByName = document.getElementById('sortByName');
@@ -40,7 +49,8 @@ sortByName.addEventListener('click', (e) => {
         p.classList.add('pair');
         p.textContent = `${element[0]}=${element[1]}`;
         pairsList.appendChild(p);
-        selectedItems=[];
+        localStorage.setItem('pairs', JSON.stringify(pairs));
+        selectedItems = [];
     });
 });
 
@@ -54,29 +64,23 @@ sortByValue.addEventListener('click', (e) => {
         p.classList.add('pair');
         p.textContent = `${element[0]}=${element[1]}`;
         pairsList.appendChild(p);
-        selectedItems=[];
+        localStorage.setItem('pairs', JSON.stringify(pairs));
+        selectedItems = [];
     });
 });
-
-
 
 document.getElementById('pairs-list').addEventListener('click', (event) => {
     if (event.target.classList.contains('pair')) {
         let targetItem = event.target;
         let index = Array.from(pairsList.children).indexOf(targetItem);
-        console.log(index);
         targetItem.classList.toggle('selected');
         if (targetItem.classList.contains('selected')) {
             selectedItems.push({id: index, name: targetItem});
         } else {
             selectedItems = selectedItems.filter(item => item !== targetItem);
         }
-        console.log(selectedItems);
-        console.log(pairs);
     }
 });
-
-
 
 const deleteSelected = document.getElementById('deleteSelected');
 deleteSelected.addEventListener('click', (e) => {
@@ -84,9 +88,9 @@ deleteSelected.addEventListener('click', (e) => {
     selectedItems.sort((a, b) => b.id - a.id).forEach(element => {
         pairs.splice(element.id, 1);
         element.name.remove()
+        localStorage.setItem('pairs', JSON.stringify(pairs));
     });
     selectedItems = [];
-    console.log(pairs);
 });
 
 
