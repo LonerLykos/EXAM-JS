@@ -43,30 +43,14 @@ const sortByName = document.getElementById('sortByName');
 sortByName.addEventListener('click', (e) => {
     e.preventDefault();
     pairsList.textContent = '';
-    let sortName = pairs.sort((a, b) => a[0].localeCompare(b[0]));
-    sortName.forEach((element) => {
-        const p = document.createElement('p');
-        p.classList.add('pair');
-        p.textContent = `${element[0]}=${element[1]}`;
-        pairsList.appendChild(p);
-        localStorage.setItem('pairs', JSON.stringify(pairs));
-        selectedItems = [];
-    });
+    sortButton(0);
 });
 
 const sortByValue = document.getElementById('sortByValue');
 sortByValue.addEventListener('click', (e) => {
     e.preventDefault();
     pairsList.textContent = '';
-    let sortValue = pairs.sort((a, b) => a[1].localeCompare(b[1]));
-    sortValue.forEach((element) => {
-        const p = document.createElement('p');
-        p.classList.add('pair');
-        p.textContent = `${element[0]}=${element[1]}`;
-        pairsList.appendChild(p);
-        localStorage.setItem('pairs', JSON.stringify(pairs));
-        selectedItems = [];
-    });
+    sortButton(1);
 });
 
 document.getElementById('pairs-list').addEventListener('click', (event) => {
@@ -93,7 +77,17 @@ deleteSelected.addEventListener('click', (e) => {
     selectedItems = [];
 });
 
-
+function sortButton(index){
+    let sortItems = pairs.sort((a, b) => a[index].localeCompare(b[index]));
+    sortItems.forEach((item) => {
+        const p = document.createElement('p');
+        p.classList.add('pair');
+        p.textContent = `${item[0]}=${item[1]}`;
+        pairsList.appendChild(p);
+        localStorage.setItem('pairs', JSON.stringify(pairs));
+        selectedItems = [];
+    });
+}
 
 
 
