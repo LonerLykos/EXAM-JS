@@ -2,6 +2,7 @@ let pairs = JSON.parse(localStorage.getItem('pairs')) || [];
 let selectedItems = [];
 let addPair = document.getElementById('addPair');
 let pairsList = document.getElementById('pairs-list');
+let deleteAll = document.getElementById('deleteAll');
 
 if (pairs.length > 0) {
     pairs.forEach((element) => {
@@ -88,6 +89,14 @@ function sortButton(index){
         selectedItems = [];
     });
 }
+
+deleteAll.addEventListener('click', (e) => {
+    e.preventDefault();
+    pairs = [];
+    localStorage.setItem('pairs', JSON.stringify(pairs));
+    pairsList.textContent = '';
+    selectedItems = [];
+})
 
 
 
