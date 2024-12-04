@@ -3,6 +3,18 @@
         text-align: center;
     }
 
+    input {
+        width: 90vw;
+        margin-bottom: 10px;
+    }
+
+    .input-container{
+        display: block;
+    }
+
+    #addPair{
+        width: 90vw;
+    }
 
     .manage {
         display: flex;
@@ -16,7 +28,6 @@
     }
 
     .list-buttons {
-        display: flex;
         flex-direction: row;
         width: 90vw;
     }
