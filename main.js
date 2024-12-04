@@ -31,8 +31,9 @@ addPair.addEventListener('click', (e) => {
                 forError(text);
                 input.value = '';
             } else {
-                const match1 = name.match(/^(([a-zA-Z0-9а-яА-ЯїЇєЄіІґҐ]+)*\s?)+$/);
-                const match2 = value.match(/^(([a-zA-Z0-9а-яА-ЯїЇєЄіІґҐ]+)*\s?)+$/);
+                const regex = /^(([a-zA-Z0-9а-яА-ЯїЇєЄіІґҐ]+)*\s?)+$/;
+                const match1 = name.match(regex);
+                const match2 = value.match(regex);
                 if (match1 && match2) {
                     pairs.push([name, value]);
                     localStorage.setItem('pairs', JSON.stringify(pairs));
