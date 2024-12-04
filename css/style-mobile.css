@@ -1,0 +1,27 @@
+@media screen and (max-width: 480px) {
+    .container {
+        text-align: center;
+    }
+
+
+    .manage {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    #pairs-list {
+        width: 90vw;
+        height: 20vh;
+    }
+
+    .list-buttons {
+        display: flex;
+        flex-direction: row;
+        width: 90vw;
+    }
+
+    .list-buttons button {
+        width: calc((100% - 20px)/3);
+    }
+}

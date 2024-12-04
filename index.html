@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exam-JS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-tablet.css">
+    <link rel="stylesheet" href="css/style-mobile.css">
+</head>
+<body>
+<div class="container">
+    <h1>Test</h1>
+    <label for="nameValuePair">Name/Value Pair</label>
+    <div class="input-container">
+        <input type="text" id="nameValuePair" placeholder="Ім'я=Значення">
+        <button id="addPair">Додати</button>
+    </div>
+    <p>Name/Value Pair List</p>
+    <div class="manage">
+        <div id="pairs-list"></div>
+        <div class="list-buttons">
+            <button id="sortByName">Сортувати за ім'ям</button>
+            <button id="sortByValue">Сортувати за значенням</button>
+            <button id="deleteSelected">Видалити</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
