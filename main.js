@@ -67,7 +67,7 @@ document.getElementById('pairs-list').addEventListener('click', (event) => {
         console.log(index);
         targetItem.classList.toggle('selected');
         if (targetItem.classList.contains('selected')) {
-            selectedItems.push(index);
+            selectedItems.push({id: index, name: targetItem});
         } else {
             selectedItems = selectedItems.filter(item => item !== targetItem);
         }
@@ -81,11 +81,10 @@ document.getElementById('pairs-list').addEventListener('click', (event) => {
 const deleteSelected = document.getElementById('deleteSelected');
 deleteSelected.addEventListener('click', (e) => {
     e.preventDefault();
-    selectedItems.sort((a, b) => b - a).forEach(index => {
-        pairs.splice(index, 1);
-        item.remove()
+    selectedItems.sort((a, b) => b.id - a.id).forEach(element => {
+        pairs.splice(element.id, 1);
+        element.name.remove()
     });
-
     selectedItems = [];
     console.log(pairs);
 });
