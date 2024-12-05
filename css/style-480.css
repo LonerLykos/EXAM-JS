@@ -1,31 +1,37 @@
-@media screen and (min-width: 481px) and (max-width: 1279px) {
+@media screen and (max-width: 480px) {
     .container {
         text-align: center;
     }
 
-    .input-container {
+    input {
         width: 90vw;
-        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
-    #pairs-list {
+    .inputContainer{
+        display: block;
+    }
+
+    #addPair{
         width: 90vw;
-        height: 30vh;
     }
 
     .manage {
-        display: flex;
         gap: 10px;
         flex-direction: column;
         align-items: center;
     }
+    #pairsList {
+        width: 90vw;
+        height: 20vh;
+    }
 
-    .list-buttons {
+    .listButtons {
         flex-direction: row;
         width: 90vw;
     }
 
-    .list-buttons button {
+    .listButtons button {
         width: calc((100% - 20px)/3);
     }
 }

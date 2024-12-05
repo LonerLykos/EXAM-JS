@@ -1,7 +1,7 @@
 let pairs = JSON.parse(localStorage.getItem('pairs')) || [];
 let selectedItems = [];
 const addPair = document.getElementById('addPair');
-const pairsList = document.getElementById('pairs-list');
+const pairsList = document.getElementById('pairsList');
 const deleteAll = document.getElementById('deleteAll');
 const errorWindow = document.getElementById('errorWindow');
 const errorMsg = document.getElementById('errorMsg');
@@ -74,7 +74,7 @@ sortByValue.addEventListener('click', (e) => {
     sortButton(1);
 });
 
-document.getElementById('pairs-list').addEventListener('click', (event) => {
+pairsList.addEventListener('click', (event) => {
     if (event.target.classList.contains('pair')) {
         let targetItem = event.target;
         let index = Array.from(pairsList.children).indexOf(targetItem);
@@ -82,7 +82,7 @@ document.getElementById('pairs-list').addEventListener('click', (event) => {
         if (targetItem.classList.contains('selected')) {
             selectedItems.push({id: index, name: targetItem});
         } else {
-            selectedItems = selectedItems.filter(item => item !== targetItem);
+            selectedItems = selectedItems.filter(item => item.name !== targetItem);
         }
     }
 });

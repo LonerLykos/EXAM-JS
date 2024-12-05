@@ -25,7 +25,7 @@ input {
     border: 3px solid blue;
     padding: 5px;
 }
-.input-container{
+.inputContainer{
     display: flex;
     gap: 15px;
 }
@@ -34,17 +34,18 @@ input {
     gap: 15px;
 }
 
-.list-buttons {
+.listButtons {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-#pairs-list {
+#pairsList {
     width: 80vw;
     height: 30vh;
     border: 3px solid blue;
     overflow: auto;
+    white-space: nowrap;
     background-color: white;
 }
 
