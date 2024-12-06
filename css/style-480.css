@@ -18,12 +18,12 @@
 
     .manage {
         gap: 10px;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
     #pairsList {
         width: 90vw;
-        height: 20vh;
+        height: 40vh;
     }
 
     .listButtons {
@@ -33,5 +33,14 @@
 
     .listButtons button {
         width: calc((100% - 20px)/3);
+    }
+
+    label {
+        margin: 40px 0 5px 0;
+    }
+
+    #errorWindow{
+        width: 75%;
+        left: calc(25% / 2);
     }
 }

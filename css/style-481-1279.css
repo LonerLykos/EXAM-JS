@@ -27,4 +27,9 @@
     .listButtons button {
         width: calc((100% - 20px)/3);
     }
+
+    #errorWindow {
+        width: 60%;
+        left: calc(40% / 2);
+    }
 }
