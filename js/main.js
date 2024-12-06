@@ -91,7 +91,7 @@ addPair.addEventListener('click', (e) => {
 
                 //коли всі перевірки пройшли і Name і Value не є пустими
                 //починаємо перевірку на відповідність дозволених символів
-                //використовуємо метод match і регулярний вираз для перевірки імені і значення
+                //використовуємо метод match і регулярний вираз для перевірки Name і Value
                 const regex = /^(([a-zA-Z0-9а-яА-ЯїЇєЄіІґҐ]+)*\s?)+$/;
                 const match1 = name.match(regex);
                 const match2 = value.match(regex);
