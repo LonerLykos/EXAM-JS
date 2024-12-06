@@ -66,20 +66,17 @@ addPair.addEventListener('click', (e) => {
     e.preventDefault();
     const input = document.getElementById('nameValuePair');
 
-    //прибираємо зайві пробіли на початку і в кінці пари
-    let trim = input.value.trim();
-
     //починаємо перевірки
     // перевірка на наявність '=' в полі інпут
-    if (trim.includes('=')) {
+    if (input.value.includes('=')) {
 
         // вводимо дві змінні для перевірки на наявність більше ніж одного '='
-        let index = trim.indexOf('=');
-        let indexlast = trim.lastIndexOf('=');
+        let index = input.value.indexOf('=');
+        let indexlast = input.value.lastIndexOf('=');
         if (index === indexlast) {
 
             //якщо '=' одне то розподіляємо введене в інпуті на Name і Value прибравши зайві пробіли для кожного
-            let arrPair = trim.split('=');
+            let arrPair = input.value.split('=');
             let name = arrPair[0].trim();
             let value = arrPair[1].trim();
 
